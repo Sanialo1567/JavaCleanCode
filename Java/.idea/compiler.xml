@@ -9,7 +9,7 @@
         <module name="aircompany" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="15">
       <module name="aircompany" target="1.8" />
     </bytecodeTargetLevel>
   </component>

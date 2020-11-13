@@ -37,12 +37,29 @@ public class AirportTest {
     @Test
     public void airportHasAtLeastOneTransportMilitaryPlanesTest() {
         Assert.assertTrue(new Airport(planes).getTransportMilitaryPlanes().stream().anyMatch(militaryPlane ->
-                militaryPlane.getType()==MilitaryTypes.TRANSPORT));
+                militaryPlane.getType() == MilitaryTypes.TRANSPORT));
+    }
+
+    @Test
+    public void hasAtLeastOneBomberInMilitaryPlanesTest() {
+        Airport airport = new Airport(planes);
+        List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
+        Assert.assertTrue(bomberMilitaryPlanes.size() > 0);
+    }
+
+    @Test
+    public void getTransportMilitaryPlanesTest() {
+        Airport airport = new Airport(planes);
+        List<MilitaryPlane> transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
+        Assert.assertTrue(transportMilitaryPlanes.size() > 0);
     }
 
     @Test
     public void getPassengerPlaneWithMaxCapacityTest() {
-        Assert.assertTrue(new Airport(planes).getPassengerPlaneWithMaxPassengersCapacity()
-                .equals(planeWithMaxPassengerCapacity));
+        Airport airport = new Airport(planes);
+        PassengerPlane expectedPlaneWithMaxPassengersCapacity = airport.getPassengerPlaneWithMaxPassengersCapacity();
+        Assert.assertTrue(expectedPlaneWithMaxPassengersCapacity.equals(planeWithMaxPassengerCapacity));
     }
+
 }
+
